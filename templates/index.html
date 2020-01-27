@@ -1,0 +1,51 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>  
+<body>
+  <div class="container"> 
+<br>	
+<h4>Input Data</h4><br>
+<form class="form form-group" method="POST" action="/">	
+    Name <input type = "text" name= "name" class="form-control" required/><br>
+    ID <input type = "text" name = "id" class="form-control" required/><br>
+       <label>Date of Birth </label><input type="date" value="date" name="date" class="form-control" required/><br>
+       <input type="reset" value="Reset Form" name="reset" class="btn btn-warning"/>
+	<marquee behavior="scroll" direction="left">Click on Agree to Terms before submitting</marquee><br>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar neque laoreet suspendisse interdum consectetur. Vel fringilla est ullamcorper eget nulla facilisi. Orci nulla pellentesque dignissim enim sit. Nam at lectus urna duis convallis convallis tellus. Scelerisque purus semper eget duis at. Libero id faucibus nisl tincidunt eget nullam. Sapien nec sagittis aliquam malesuada bibendum arcu. Rhoncus dolor purus non enim praesent elementum. Nisl nunc mi ipsum faucibus vitae aliquet. Egestas diam in arcu cursus euismod quis viverra nibh cras. Mattis rhoncus urna neque viverra justo.
+</p>
+
+	<center>
+	<input type="checkbox" name="check" id="accept" value="1" required>Agree to Terms
+        <input type="submit" value="Submit Data" name="submit" onclick="validate()" class="btn btn-primary"><br>
+	</center>
+</form>
+<br><br><br>
+
+      <table class="table" ng-controller="myController">
+      <caption>Table with data from mysql database</caption>
+	<thead>	
+	<tr>
+		<th>Name</th>
+		<th>ID</th>
+		<th>DOB</th>
+	</tr>
+	</thead>
+	<tbody>	
+	   {% for pn,pi,pd in pdata %}
+	<tr>	
+		<td>{{pn}}</td>
+		<td>{{pi}}</td>
+		<td>{{pd}}</td>
+	</tr>	
+	   {% endfor %}
+	</tbody>
+       </table>
+</div>
+
+	<script src="{{ url_for('static', filename='angular.js') }}"></script>
+	<script src="{{ url_for('static', filename='js1.js') }}"></script>
+</body>
+</html>
+
