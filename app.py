@@ -5,8 +5,11 @@ app = Flask(__name__)
 
 @app.route('/',methods=['GET','POST'])
 def index():
-	mydb = mysql.connector.connect(host="mysql",user="root",password="mysql12345")
-	mycursor = mydb.cursor()
+	try:
+		mydb = mysql.connector.connect(host="mysql",password="mysql12345")
+		mycursor = mydb.cursor()
+	except Error as e:
+		print("Error while connecting to MySQL", e)
 	try:
 		mycursor.execute("CREATE DATABASE mydatabase")
 	except:
